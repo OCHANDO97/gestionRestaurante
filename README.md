@@ -33,31 +33,25 @@ Puedes importar fácilmente mesas, categorías y productos desde archivos CSV. L
 tab_id,tab_name
 1,"Mesa 1"
 2,"Mesa 2"
-🗂️ Categorías
-El campo cat_isActive determina si la categoría será visible en la aplicación.
 
-csv
-Copiar
-Editar
+### 🗂️ Categorías
+El campo cat_isActive determina si la categoría será visible en la aplicación.
 cat_id,cat_name,cat_isActive
 1,Entrantes,1
 2,"Platos principales",0
 3,Bebidas,1
 4,Pizzas,1
-🍽️ Productos
+### 🍽️ Productos
 El campo pro_categoryID indica a qué categoría pertenece el producto.
 pro_price representa el precio del producto.
 
-csv
-Copiar
-Editar
 pro_id,pro_name,pro_price,pro_categoryID
 1,Empanadas,2.5,1
 2,Croquetas,1.5,1
 3,Hamburguesa,4,2
 4,Heineken,3.5,3
 5,Pepperoni,5.5,4
-Los CSV pueden ser cargados en cualquier momento para actualizar o mejorar el menú del restaurante.
+Los CSV pueden ser cargados en cualquier momento para actualizar o mejorar el menú del restaurante.```
 
 🐳 Instalación con Docker
 La aplicación está dockerizada para facilitar la configuración y el despliegue.
