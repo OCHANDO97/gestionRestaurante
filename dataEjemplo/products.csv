@@ -1,0 +1,6 @@
+pro_id,pro_name,pro_price,pro_categoryID
+1,Empanadas,2.5,1
+2,Croquetas,1.5,1
+3,Hamburguesa,4,2
+4,Heinker,3.5,3
+5,pepperoni,5.5,5

@@ -1,0 +1,64 @@
+version: '3.8'
+services:
+  # -------------------------------------------------------
+  # 1) Base de datos MySQL
+  # -------------------------------------------------------
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: restaurante
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  # -------------------------------------------------------
+  # 2) Servicio PHP – tu app  
+  # -------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-inertia-app
+    container_name: app-restaurante-app-1
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www
+      - ./.env:/var/www/.env
+      - vendor_data:/var/www/vendor
+    ports:
+      - "8000:80"
+    command: php artisan serve --host=0.0.0.0 --port=80
+
+  # -------------------------------------------------------
+  # 3) Servicio Composer – instala dependencias PHP  
+  # -------------------------------------------------------
+  composer:
+    image: composer:2
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - vendor_data:/var/www/vendor
+    command: install --no-interaction --prefer-dist --optimize-autoloader
+
+  # -------------------------------------------------------
+  # 4) Servicio Node – levanta Vite para dev  
+  # -------------------------------------------------------
+  node:
+    image: node:18-alpine
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - node_data:/var/www/node_modules
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev"
+
+volumes:
+  db_data:
+  vendor_data:
+  node_data:
