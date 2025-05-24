@@ -60,19 +60,25 @@ Tener Docker y Docker Compose instalados
 
 ⚙️ Pasos de instalación
 Instalar dependencias de PHP:
+
 docker compose run --rm composer
 
 Instalar dependencias de JavaScript y levantar Vite:
+
 docker compose up -d node
+
 Construir y levantar la app junto con la base de datos:
 
 docker compose up -d --build app db
+
 
 Ejecutar migraciones y seeders:
 
 
 docker compose exec app php artisan migrate
+
 docker compose exec app php artisan db:seed --class=RolePermissionSeeder
+
 docker compose exec app php artisan db:seed --class=AsigneRole
 
 ### 🌐 Acceso a la aplicación
