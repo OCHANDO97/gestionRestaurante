@@ -29,7 +29,6 @@ Puedes importar fácilmente mesas, categorías y productos desde archivos CSV. L
 
 ### 🪑 Mesas
 
-```csv
 tab_id,tab_name
 1,"Mesa 1"
 2,"Mesa 2"
@@ -51,9 +50,9 @@ pro_id,pro_name,pro_price,pro_categoryID
 3,Hamburguesa,4,2
 4,Heineken,3.5,3
 5,Pepperoni,5.5,4
-Los CSV pueden ser cargados en cualquier momento para actualizar o mejorar el menú del restaurante.```
+Los CSV pueden ser cargados en cualquier momento para actualizar o mejorar el menú del restaurante.
 
-🐳 Instalación con Docker
+### 🐳 Instalación con Docker
 La aplicación está dockerizada para facilitar la configuración y el despliegue.
 
 🔧 Requisitos
@@ -61,36 +60,26 @@ Tener Docker y Docker Compose instalados
 
 ⚙️ Pasos de instalación
 Instalar dependencias de PHP:
-
-bash
-Copiar
-Editar
 docker compose run --rm composer
-Instalar dependencias de JavaScript y levantar Vite:
 
-bash
-Copiar
-Editar
+Instalar dependencias de JavaScript y levantar Vite:
 docker compose up -d node
 Construir y levantar la app junto con la base de datos:
 
-bash
-Copiar
-Editar
 docker compose up -d --build app db
+
 Ejecutar migraciones y seeders:
 
-bash
-Copiar
-Editar
+
 docker compose exec app php artisan migrate
 docker compose exec app php artisan db:seed --class=RolePermissionSeeder
 docker compose exec app php artisan db:seed --class=AsigneRole
-🌐 Acceso a la aplicación
+
+### 🌐 Acceso a la aplicación
 Accede desde tu navegador a:
 👉 http://localhost:8000
 
-👨‍💼 Usuario administrador de ejemplo
+👨‍💼 Usuario administrador
 ID Empleado: 39599
 
 Contraseña: 12345678
