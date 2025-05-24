@@ -59,20 +59,20 @@ La aplicación está dockerizada para facilitar la configuración y el despliegu
 Tener Docker y Docker Compose instalados
 
 ⚙️ Pasos de instalación
-Instalar dependencias de PHP:
+**Instalar dependencias de PHP:**
 
 docker compose run --rm composer
 
-Instalar dependencias de JavaScript y levantar Vite:
+**Instalar dependencias de JavaScript y levantar Vite:**
 
 docker compose up -d node
 
-Construir y levantar la app junto con la base de datos:
+**Construir y levantar la app junto con la base de datos:**
 
 docker compose up -d --build app db
 
 
-Ejecutar migraciones y seeders:
+**Ejecutar migraciones y seeders:**
 
 
 docker compose exec app php artisan migrate
